@@ -18,7 +18,7 @@ const handler: Handler = async function (event) {
  console.log(JSON.stringify(requestBody));
 
 
-  await fetch(`${process.env.URL}/.netlify/functions/emails/subscribe`, {
+  await fetch(`${process.env.URL}/.netlify/functions/emails/subscribed`, {
     headers: {
       "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
     },
