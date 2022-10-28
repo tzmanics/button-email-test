@@ -15,8 +15,10 @@ const handler: Handler = async function (event) {
     inviteeEmail: string;
   };
 
+ console.log(JSON.stringify(requestBody));
 
-  await fetch(`${process.env.URL}/.netlify/functions/emails/confirm`, {
+
+  await fetch(`${process.env.URL}/.netlify/functions/emails/subscribe`, {
     headers: {
       "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
     },
@@ -27,6 +29,7 @@ const handler: Handler = async function (event) {
       subject: "You've been subscribed",
       parameters: {
         name: requestBody.subscriberName,
+        email: requestBody.subscriberEmail,
       },
     }),
   });
